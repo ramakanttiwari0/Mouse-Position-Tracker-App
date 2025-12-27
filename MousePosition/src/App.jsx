@@ -11,6 +11,9 @@ function App() {
       setMouseMove({x: event.clientX , y: event.clientY});
     }
     window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);  //this will automatically remove the mousemove listener when component is unmounted. for good practice.
+    };
     }, []);
 
   return (
